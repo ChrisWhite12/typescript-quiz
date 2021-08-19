@@ -32,6 +32,7 @@ function App() {
         setGameOver(false);
         const newQ = await fetchQuiz(TOTAL_QUESTIONS, Difficulty.EASY);
 
+        // console.log('newQ', newQ)
         setQuestions(newQ);
         setScore(0);
         setUserAnswers([]);
@@ -42,8 +43,8 @@ function App() {
     const checkAnswer = (e: React.MouseEvent<HTMLButtonElement>) => {
       if (!gameOver){
         const answer = e.currentTarget.value 
-        const correct = questions[number].correct_answer === answer
-        if (correct){
+        const isCorrect = questions[number].correct_answer === answer
+        if (isCorrect){
           setScore(prev => prev + 1)
           setCorrect(true)
         }
@@ -52,7 +53,7 @@ function App() {
         const answerObj = {
           question: questions[number].question,
           answer,
-          correct,
+          correct: isCorrect,
           correctAnswer: questions[number].correct_answer
         }
 

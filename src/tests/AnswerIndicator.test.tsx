@@ -1,4 +1,4 @@
-import AnswerIndicator from "./AnswerIndicator"
+import AnswerIndicator from "../components/AnswerIndicator"
 import { render, screen } from '@testing-library/react'
 
 describe("AnswerIndicator test", () => {
